@@ -1,0 +1,49 @@
+<html ng-app="schoolApp">
+
+<head>
+	<title>School-Management</title>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/spacelab/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/main.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" integrity="sha256-xI/qyl9vpwWFOXz7+x/9WkG5j/SVnSw21viy8fWwbeE=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+	<script src="scripts/main.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div ng-controller="headerCtrl as hc" cm-header>
+
+		</div>
+	</div>
+</body>
+
+<script src="app/directives/directive.js"></script>
+<script src="app/directives/commonHeader.js"></script>
+
+<!--======= register module ======-->
+<script src="app/register/register.js"></script>
+<script src="app/register/registerCtrl.js"></script>
+
+<!-- ======== login module ========-->
+<script src="app/login/login.js"></script>
+<script src="app/login/loginCtrl.js"></script>
+<!--========= header files ========-->
+<script src="app/header/header.js"></script>
+<script src="app/header/headerCtrl.js"></script>
+<!--========= teachers files ========-->
+<script src="app/faculty/faculty.js"></script>
+<script src="app/faculty/facultyCtrl.js"></script>
+<!--========= students files ========-->
+<script src="app/students/students.js"></script>
+<script src="app/students/studentsCtrl.js"></script>
+<!--========= staff files ========-->
+<script src="app/staff/staff.js"></script>
+<script src="app/staff/staffCtrl.js"></script>
+<script src="app/app.js"></script>
+
+</html>

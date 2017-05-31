@@ -1,0 +1,41 @@
+<div class="container" ng-controller="staffCtrl as sc">
+	<section class="main" style="margin-left:20px;">
+		<div class="container">
+			<div class="row">
+				<section class="main-col col-md-12">
+					<div class="page-header">
+						<h1>Staff</h1>
+					</div>
+					<div class="region region-content">
+						<section id="block-system-main" class="block block-system clearfix">
+
+
+							<table class="sortable table table-hover table-striped sticky-enabled tableheader-processed sticky-table sticky-enabled">
+								<caption></caption>
+								<thead>
+									<tr>
+										<th class="active"><a href="#" title="sort by Name" class="active">Name<img typeof="foaf:Image" class="img-responsive" src="https://www.iitm.ac.in/misc/arrow-desc.png" width="13" height="13" alt="sort descending" title="sort descending"></a></th>
+										<th><a href="#" title="sort by Dept" class="active">Dept</a></th>
+										<th><a href="#" title="sort by Designation" class="active">Designation</a></th>
+										<th><a href="#" title="sort by Phone" class="active">Phone</a></th>
+										<th><a href="#" title="sort by Mail" class="active">Mail</a></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="odd" ng-repeat="staff in sc.staffs">
+										<td class="active">{{staff.firstName}}</td>
+										<td>{{staff.department}}</td>
+										<td>{{staff.designation}}</td>
+										<td>{{staff.phone}}</td>
+										<td>{{staff.mail}}</td>
+									</tr>
+								</tbody>
+							</table>
+							
+						</section>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+</div>

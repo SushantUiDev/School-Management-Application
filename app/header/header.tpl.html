@@ -1,0 +1,42 @@
+<div class="nav-side-menu">
+    <div class="brand" style="color:pink;font-weight:bold;font-style:oblique;font-size:24px;">{{hc.brandName}}</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+        <div class="menu-list">
+  
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <a href="#">
+                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                  </a>
+                </li>
+
+                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#"><i class="fa fa-gift fa-lg"></i> School People <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products" >
+                    
+                    <li ng-repeat="nav in hc.navBar" ng-click="hc.loadView(nav)"><a href="#" >{{nav}}</a></li>
+                   <!-- <li><a href="#">Buttons</a></li>
+                    <li><a href="#">Tabs & Accordions</a></li>
+                    <li><a href="#">Typography</a></li>
+                    <li><a href="#">FontAwesome</a></li>
+                    <li><a href="#">Slider</a></li>
+                    <li><a href="#">Panels</a></li>
+                    <li><a href="#">Widgets</a></li>
+                    <li><a href="#">Bootstrap Model</a></li>-->
+                </ul>
+
+                <ul>
+                 <li  ng-repeat="nav1 in hc.nawBar2" ng-click="hc.loadView1(nav1)">
+                     <a href="#">
+                        <i class="fa fa-user fa-lg"></i> {{nav1}}
+                     </a>
+                 </li>
+			   </ul>
+			</ul>
+			
+     </div>
+	
+</div>
+<div ng-include="hc.loadTemplate" class="another_div"></div>

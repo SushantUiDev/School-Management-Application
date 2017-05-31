@@ -1,0 +1,190 @@
+<div style="width:100%;" ng-controller="studentsCtrl as sc">
+	<div style="margin-left:100px;">
+		<h1>Student</h1>
+		<button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" 
+				data-target="#myModalRegister">Add Student</button><br><br>
+		<hr>
+		<div style="font-size:18px;">All Students</div><span style="float:left;margin-left:900px;"><a href="#" ng-click="sc.showMore()">ShowMore</a></span>
+		<hr>
+	</div>
+	<div class="alert alert-info" ng-if="sc.message" style="margin-left:100px;">
+		<a href="#" class="close" aria-label="close" ng-click="sc.clearMessage()">&times;</a>
+		<strong>Info!</strong> {{sc.message}}
+	</div>
+
+	<table class="table"  style="width:1000px;margin-left:100px;">
+		<thead>
+			<tr>
+				<th>Sr No</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Department</th>
+				<th>Update</th>
+				<th>Delet</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="student in sc.students | limitTo : sc.minimumProducts">
+				<td>{{$index+1}}</td>
+				<td>{{student.firstName}}</td>
+				<td>{{student.lastName}}</td>
+				<td>{{student.department}}</td>
+				<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit" ng-click="sc.selectStudent(student)">Update</button></td>
+				<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelet" ng-click="sc.selectStudent(student)">Delet</button></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+	
+
+	<!--- ========  new register =========-->
+	<!-- Modal -->
+	<div class="modal fade" id="myModalRegister" role="dialog" style="background-color:black;opacity:0.8;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">New Student</h4>
+				</div>
+				<div class="modal-body">
+					<!-- register form -->
+					<div class="container">
+						<form class="form-horizontal" role="form">
+							<h2>Registration Form</h2>
+							<div class="form-group">
+								<label for="firstName" class="col-sm-12 control-label">Full Name</label>
+								<div class="col-sm-4">
+									<input type="text" id="firstName" placeholder="firstName" ng-model="sc.newUser.firstName" class="form-control" autofocus>
+									<span class="help-block">First Name, eg.: Smith, Harry</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="firstName" class="col-sm-12 control-label">last Name</label>
+								<div class="col-sm-4">
+									<input type="text" id="firstName" placeholder="lastName" ng-model="sc.newUser.lastName" class="form-control" autofocus>
+									<span class="help-block">Last Name, eg.: Smith, Harry</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="department" class="col-sm-12 control-label">Department</label>
+								<div class="col-sm-4">
+									<input type="text" id="text" placeholder="Department" ng-model="sc.newUser.department" class="form-control">
+								</div>
+							</div>
+							<!-- /.form-group -->
+							<div class="form-group">
+								<div class="col-sm-4">
+									<button type="submit" class="btn btn-primary btn-block" ng-click="sc.register()" data-dismiss="modal">Register</button>
+								</div>
+							</div>
+
+						</form>
+						<!-- /form -->
+					</div>
+					<!-- ./container -->
+				</div>
+				<div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- =========== Edit user ============-->
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModalEdit" role="dialog" style="background-color:black;opacity:0.8;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Update Student Details</h4>
+				</div>
+				<div class="modal-body">
+					<!-- register form -->
+					<div class="container">
+						<form class="form-horizontal" role="form">
+							<h2>Edit Student Details</h2>
+							<div class="form-group">
+								<label for="firstName" class="col-sm-12 control-label">First Name</label>
+								<div class="col-sm-4">
+									<input type="text" id="firstName" placeholder="First Name" ng-model="sc.clickedStudent.firstName" class="form-control" autofocus>
+									<span class="help-block">First Name, eg.: Smith, Harry</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="firstName" class="col-sm-12 control-label">Last Name</label>
+								<div class="col-sm-4">
+									<input type="text" id="firstName" placeholder="last Name" class="form-control" ng-model="sc.clickedStudent.lastName" autofocus>
+									<span class="help-block">Last Name , eg.: Smith, Harry</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="department" class="col-sm-12 control-label">Department</label>
+								<div class="col-sm-4">
+									<input type="text" id="department" placeholder="Department" class="form-control" ng-model="sc.clickedStudent.department">
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-sm-4">
+									<button type="submit" class="btn btn-primary btn-block" data-dismiss="modal" ng-click="sc.updateUser()">Update</button>
+								</div>
+							</div>
+						</form>
+						<!-- /form -->
+					</div>
+					<!-- ./container -->
+				</div>
+				<div class="modal-footer">
+
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- =========== end Edit user ============-->
+	
+	
+	<!-- =========== delet user ============-->
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModalDelet" role="dialog" style="background-color:black;opacity:0.8;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" style="color:red">Are you sure ? </h4>
+				</div>
+				<div class="modal-body">
+					<!-- register form -->
+					<div class="container">
+						<form class="form-horizontal" role="form">
+							<strong >You want to delet {{sc.clickedStudent.firstName}} all information</strong>
+						</form>
+						<!-- /form -->
+					</div>
+					<!-- ./container -->
+				</div>
+				<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="sc.deletStudent()">Yes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" >No</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
